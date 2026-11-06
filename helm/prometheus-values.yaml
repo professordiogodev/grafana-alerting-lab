@@ -1,0 +1,17 @@
+# Plain Prometheus server (no operator, no alertmanager): Grafana will do the alerting.
+alertmanager: {enabled: false}
+kube-state-metrics: {enabled: false}
+prometheus-node-exporter: {enabled: false}
+prometheus-pushgateway: {enabled: false}
+server:
+  fullnameOverride: prometheus
+  retention: 2h
+  global:
+    scrape_interval: 5s
+    scrape_timeout: 4s
+    evaluation_interval: 5s
+  persistentVolume: {enabled: false}
+  service: {servicePort: 9090}
+# the chart's config-reloader image has no arm64 build at the moment, and we never change config at runtime
+configmapReload:
+  prometheus: {enabled: false}

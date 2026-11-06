@@ -96,7 +96,7 @@ Fix it and watch the ✅ RESOLVED notification:
 
 ## 6. Bonus - a second alert (do as many as you have time for)
 
-- **Warning alert**: p95 bake time above 2s for 30s, `severity=warning`. Trigger with `./scripts/chaos.sh slow`. Which contact point receives it? (default policy → `kitchen-log`)
+- **Warning alert**: p95 bake time above 4s for 30s (normal is ~2s), `severity=warning`. Trigger with `./scripts/chaos.sh slow`. Which contact point receives it? (default policy → `kitchen-log`)
 - **No data**: `kubectl --context orbstack -n alerting-lab scale deploy/pizzeria --replicas=0`. What state does your rule go to? Change *No data handling* to *Alerting* and try again. Scale back to 2.
 - **Alert on logs?** Loki can do this too (see the monitoring lab).
 

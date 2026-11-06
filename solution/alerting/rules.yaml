@@ -84,4 +84,4 @@ groups:
         - evaluator:
             type: gt
             params:
-            - 2
+            - 4
